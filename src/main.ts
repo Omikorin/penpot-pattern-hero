@@ -1,7 +1,8 @@
+import { PatternHero } from './pattern-hero';
 import './style.css';
 
 const initializeApp = () => {
-  console.log('app initialized');
+  new PatternHero();
 };
 
 document.addEventListener('DOMContentLoaded', () => initializeApp());

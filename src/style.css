@@ -17,6 +17,16 @@ section {
   justify-content: center;
 }
 
+.button-group {
+  display: flex;
+  justify-self: center;
+  gap: var(--spacing-12);
+
+  button {
+    width: 100%;
+  }
+}
+
 .content-footer {
   width: 100%;
   text-align: center;
