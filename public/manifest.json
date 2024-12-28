@@ -1,0 +1,9 @@
+{
+  "name": "Pattern Hero",
+  "code": "plugin.js",
+  "description": "Create your own patterns, don't rely on licenses",
+  "permissions": [
+    "content:read",
+    "content:write"
+  ]
+}
