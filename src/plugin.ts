@@ -1,4 +1,7 @@
-penpot.ui.open('Pattern Hero', `?theme=${penpot.theme}`);
+penpot.ui.open('Pattern Hero', `?theme=${penpot.theme}`, {
+  width: 285,
+  height: 500,
+});
 
 penpot.ui.onMessage(() => {});
 

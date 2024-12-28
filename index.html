@@ -8,7 +8,106 @@
   <body>
     <main>
       <section>
-        <div class="controls"></div>
+        <div class="controls">
+          <!-- Rows -->
+          <div class="form-group">
+            <label for="rows" id="rows-label" class="body-l">Rows</label>
+            <input
+              class="input"
+              aria-labelledby="rows-label"
+              id="rows"
+              type="number"
+              min="1"
+              max="50"
+              step="1"
+              value="10"
+            />
+          </div>
+
+          <!-- Columns -->
+          <div class="form-group">
+            <label for="columns" id="columns-label" class="body-l">
+              Columns
+            </label>
+            <input
+              class="input"
+              aria-labelledby="columns-label"
+              id="columns"
+              type="number"
+              min="1"
+              max="50"
+              step="1"
+              value="10"
+            />
+          </div>
+
+          <!-- Padding -->
+          <div class="form-group">
+            <label for="padding" id="padding-label" class="body-l">
+              Padding
+            </label>
+            <input
+              class="input"
+              aria-labelledby="padding-label"
+              id="padding"
+              type="number"
+              min="1"
+              max="50"
+              step="1"
+              value="5"
+            />
+          </div>
+
+          <!-- Repeat Nodes -->
+          <div class="form-group">
+            <label for="repeat" id="repeat-label" class="body-l">
+              Repeat Nodes
+            </label>
+            <label class="toggle">
+              <input
+                class="checkbox-hidden"
+                aria-labelledby="repeat-label"
+                id="repeat"
+                type="checkbox"
+                checked
+              />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <!-- Shuffle Nodes -->
+          <div class="form-group">
+            <label for="shuffle" id="shuffle-label" class="body-l">
+              Shuffle Nodes
+            </label>
+            <label class="toggle">
+              <input
+                class="checkbox-hidden"
+                aria-labelledby="shuffle-label"
+                id="shuffle"
+                type="checkbox"
+              />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <!-- Group Nodes -->
+          <div class="form-group">
+            <label for="group" id="group-label" class="body-l">
+              Group Nodes
+            </label>
+            <label class="toggle">
+              <input
+                class="checkbox-hidden"
+                aria-labelledby="group-label"
+                id="group"
+                type="checkbox"
+                checked
+              />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
 
         <div class="button-group">
           <button id="btn-create" data-appearance="primary">Create</button>
