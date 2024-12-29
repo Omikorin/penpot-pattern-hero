@@ -6,3 +6,13 @@ export type PluginConfig = {
   shuffle: boolean;
   group: boolean;
 };
+
+export interface PluginCreatePatternEvent {
+  type: 'create-pattern';
+  content: {
+    config: PluginConfig;
+    name: string;
+  };
+}
+
+export type PluginEvent = PluginCreatePatternEvent;

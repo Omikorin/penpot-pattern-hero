@@ -1,9 +1,11 @@
+import type { PluginCreatePatternEvent } from './common/types';
+
 penpot.ui.open('Pattern Hero', `?theme=${penpot.theme}`, {
   width: 285,
-  height: 500,
+  height: 430,
 });
 
-penpot.ui.onMessage<any>((message) => {
+penpot.ui.onMessage<PluginCreatePatternEvent>((message) => {
   if (message.type === 'create-pattern') {
     const { config, name } = message.content;
 
