@@ -38,15 +38,17 @@ section {
 .toggle {
   position: relative;
   display: inline-block;
-  width: 44px;
-  height: 24px;
+  width: 46px;
+  height: 26px;
+  outline: none;
 
-  input:checked + .slider {
-    background-color: var(--accent-primary);
+  input:focus + .slider {
+    background-color: var(--background-primary);
+    border-color: var(--accent-primary);
   }
 
   input:checked + .slider:before {
-    background-color: var(--background-tertiary);
+    background-color: var(--accent-primary);
     transform: translateX(20px);
   }
 
@@ -57,9 +59,16 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
+    border: 1px solid;
+    border-color: var(--background-tertiary);
     background-color: var(--background-tertiary);
     transition: 0.4s;
-    border-radius: 30px;
+    border-radius: 12px;
+
+    &:hover {
+      background-color: var(--background-quaternary);
+      border-color: var(--background-quaternary);
+    }
 
     &::before {
       position: absolute;
