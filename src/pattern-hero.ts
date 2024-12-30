@@ -7,7 +7,7 @@ export class PatternHero {
     this.config = {
       rows: 10,
       columns: 10,
-      padding: 5,
+      padding: 30,
       repeat: true,
       shuffle: false,
       group: true,
