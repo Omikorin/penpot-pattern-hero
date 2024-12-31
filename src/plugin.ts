@@ -30,15 +30,23 @@ penpot.ui.onMessage<PluginEvent>((message) => {
 });
 
 const createClones = (gridLength: number, shouldRepeat: boolean): Shape[] => {
-  // initial clones
-  const clones = penpot.selection.map((node) => node.clone());
+  // filtering was added because of penpot/penpot#5507
+  // issue: https://github.com/penpot/penpot/issues/5507
+  const filteredSelection = penpot.selection.filter((shape) => {
+    return (
+      !shape.isComponentInstance() ||
+      !(shape.isComponentInstance() && !shape.isComponentRoot())
+    );
+  });
 
-  if (!shouldRepeat) return clones;
+  if (!shouldRepeat) return filteredSelection;
+
+  const clones = [...filteredSelection];
 
   while (clones.length < gridLength) {
     const remainingCount = gridLength - clones.length;
-    const newClones = penpot.selection
-      .slice(0, Math.min(remainingCount, penpot.selection.length))
+    const newClones = filteredSelection
+      .slice(0, Math.min(remainingCount, filteredSelection.length))
       .map((node) => node.clone());
     clones.push(...newClones);
   }
