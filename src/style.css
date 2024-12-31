@@ -42,7 +42,8 @@ section {
   height: 26px;
   outline: none;
 
-  input:focus + .slider {
+  input:focus + .slider,
+  input:active + .slider {
     background-color: var(--background-primary);
     border-color: var(--accent-primary);
   }
