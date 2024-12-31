@@ -7,8 +7,8 @@ import type {
 import { shuffleArray } from './common/utils';
 
 penpot.ui.open('Pattern Hero', `?theme=${penpot.theme}`, {
-  width: 285,
-  height: 430,
+  width: 300,
+  height: 450,
 });
 
 penpot.ui.onMessage<PluginEvent>((message) => {
