@@ -32,12 +32,14 @@ penpot.ui.onMessage<PluginEvent>((message) => {
 const createClones = (gridLength: number, shouldRepeat: boolean): Shape[] => {
   // filtering was added because of penpot/penpot#5507
   // issue: https://github.com/penpot/penpot/issues/5507
-  const filteredSelection = penpot.selection.filter((shape) => {
-    return (
-      !shape.isComponentInstance() ||
-      !(shape.isComponentInstance() && !shape.isComponentRoot())
-    );
-  });
+  const filteredSelection = penpot.selection
+    .filter((shape) => {
+      return (
+        !shape.isComponentInstance() ||
+        !(shape.isComponentInstance() && !shape.isComponentRoot())
+      );
+    })
+    .map((shape) => shape.clone());
 
   if (!shouldRepeat) return filteredSelection;
 
