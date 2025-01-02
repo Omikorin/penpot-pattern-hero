@@ -114,6 +114,8 @@ const createPattern = (content: PluginCreatePatternEvent['content']) => {
 
   const { x, y } = penpot.selection[0];
 
+  const undoBlockId = penpot.history.undoBlockBegin();
+
   const gridLength = config.rows * config.columns;
   const clones = createClones(gridLength, config.repeat);
 
@@ -125,6 +127,8 @@ const createPattern = (content: PluginCreatePatternEvent['content']) => {
 
   arrangeNodesInGrid(clones, config, { x, y });
   finalizeSelection(clones, config.group, name);
+
+  penpot.history.undoBlockFinish(undoBlockId);
 };
 
 // Update the theme in the iframe
