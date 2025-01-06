@@ -1,15 +1,23 @@
 import Alpine from 'alpinejs';
-import { PatternHero } from './pattern-hero';
-import './style.css';
+import './assets/style.css';
+import { createPattern } from './common/actions';
+import { initializeStore } from './common/store';
+import type { PluginEvent } from './common/types';
+import { numberInput } from './components/number-input';
+import { toggle } from './components/toggle';
 
-const initializeApp = () => {
-  new PatternHero();
-};
+document.addEventListener('alpine:init', () => {
+  Alpine.data('numberInput', numberInput);
+  Alpine.data('toggle', toggle);
 
-document.addEventListener('DOMContentLoaded', () => initializeApp());
+  Alpine.data('patternHero', () => ({
+    createPattern,
+  }));
+});
 
 window.Alpine = Alpine;
 
+initializeStore();
 Alpine.start();
 
 // theme handling
@@ -17,9 +25,9 @@ const searchParams = new URLSearchParams(window.location.search);
 document.body.dataset.theme = searchParams.get('theme') ?? 'light';
 
 // listen plugin.ts messages
-window.addEventListener('message', (event) => {
-  if (event.data.source === 'penpot') {
-    document.body.dataset.theme = event.data.theme;
+window.addEventListener('message', (event: MessageEvent<PluginEvent>) => {
+  if (event.data.type === 'themechange') {
+    document.body.dataset.theme = event.data.content;
   }
 });
 

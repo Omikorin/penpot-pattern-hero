@@ -1,3 +1,5 @@
+import type { Theme } from '@penpot/plugin-types';
+
 export type PluginConfig = {
   rows: number;
   columns: number;
@@ -7,7 +9,7 @@ export type PluginConfig = {
   group: boolean;
 };
 
-export interface PluginCreatePatternEvent {
+export interface CreatePatternEvent {
   type: 'create-pattern';
   content: {
     config: PluginConfig;
@@ -15,4 +17,11 @@ export interface PluginCreatePatternEvent {
   };
 }
 
-export type PluginEvent = PluginCreatePatternEvent;
+export type PluginUIEvent = CreatePatternEvent;
+
+export interface ThemeChangeEvent {
+  type: 'themechange';
+  content: Theme;
+}
+
+export type PluginEvent = ThemeChangeEvent;

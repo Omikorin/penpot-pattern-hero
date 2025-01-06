@@ -1,8 +1,9 @@
 import type { Shape } from '@penpot/plugin-types';
 import type {
+  CreatePatternEvent,
   PluginConfig,
-  PluginCreatePatternEvent,
   PluginEvent,
+  PluginUIEvent,
 } from './common/types';
 import { shuffleArray } from './common/utils';
 
@@ -11,7 +12,7 @@ penpot.ui.open('Pattern Hero', `?theme=${penpot.theme}`, {
   height: 450,
 });
 
-penpot.ui.onMessage<PluginEvent>((message) => {
+penpot.ui.onMessage<PluginUIEvent>((message) => {
   if (message.type === 'create-pattern') {
     createPattern(message.content);
     // Here we take the following approach:
@@ -106,7 +107,7 @@ const finalizeSelection = (
   }
 };
 
-const createPattern = (content: PluginCreatePatternEvent['content']) => {
+const createPattern = (content: CreatePatternEvent['content']) => {
   const { config, name } = content;
 
   if (!config || !name) return;
@@ -133,9 +134,9 @@ const createPattern = (content: PluginCreatePatternEvent['content']) => {
 
 // Update the theme in the iframe
 penpot.on('themechange', (theme) => {
-  penpot.ui.sendMessage({
-    source: 'penpot',
-    type: 'themechange',
-    theme,
-  });
+  sendMessage({ type: 'themechange', content: theme });
 });
+
+const sendMessage = (message: PluginEvent) => {
+  penpot.ui.sendMessage(message);
+};
