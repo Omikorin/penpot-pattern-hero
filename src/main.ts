@@ -1,3 +1,4 @@
+import Alpine from 'alpinejs';
 import { PatternHero } from './pattern-hero';
 import './style.css';
 
@@ -6,6 +7,10 @@ const initializeApp = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => initializeApp());
+
+window.Alpine = Alpine;
+
+Alpine.start();
 
 // theme handling
 const searchParams = new URLSearchParams(window.location.search);
@@ -17,3 +22,9 @@ window.addEventListener('message', (event) => {
     document.body.dataset.theme = event.data.theme;
   }
 });
+
+declare global {
+  interface Window {
+    Alpine: typeof Alpine;
+  }
+}

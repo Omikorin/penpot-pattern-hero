@@ -16,9 +16,11 @@
   "license": "ISC",
   "dependencies": {
     "@penpot/plugin-styles": "1.1.0",
-    "@penpot/plugin-types": "1.1.0"
+    "alpinejs": "^3.14.8"
   },
   "devDependencies": {
+    "@penpot/plugin-types": "1.1.0",
+    "@types/alpinejs": "^3.13.11",
     "typescript": "^5.7.2",
     "vite": "^5.4.11",
     "vite-live-preview": "^0.3.2"
