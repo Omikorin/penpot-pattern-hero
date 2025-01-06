@@ -58,11 +58,11 @@ const createClones = (gridLength: number, shouldRepeat: boolean): Shape[] => {
 };
 
 const cleanupSelection = () => {
-  penpot.selection.forEach((node) => {
+  for (const node of penpot.selection) {
     // we don't want to destroy components
-    if (node.isComponentMainInstance()) return;
+    if (node.isComponentMainInstance()) continue;
     node.remove();
-  });
+  }
 };
 
 const arrangeNodesInGrid = (

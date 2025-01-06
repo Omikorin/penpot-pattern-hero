@@ -1,5 +1,5 @@
 import Alpine from 'alpinejs';
-import { PluginConfig } from './types';
+import type { PluginConfig } from './types';
 
 export const initializeStore = () => {
   Alpine.store('config', {
