@@ -9,7 +9,6 @@ Create stunning, repeatable patterns for your designs directly within Penpot! Th
 - **Simple & Powerful**: Create complex patterns with just a few clicks
 - **Highly Customizable**: Adjust rows, columns, padding, and more
 - **Component Support**: Works seamlessly with Penpot components
-- **Zero Dependencies**: Lightweight plugin built without external frameworks
 
 ## 🎯 Key Features
 
