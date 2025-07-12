@@ -1,7 +1,8 @@
 {
   "name": "Pattern Hero",
-  "code": "plugin.js",
   "description": "Create your own patterns, don't rely on licensed examples",
+  "code": "plugin.js",
+  "icon": "/icon.png",
   "permissions": [
     "content:read",
     "content:write"
