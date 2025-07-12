@@ -6,6 +6,7 @@ export const numberInput: AlpineComponent<any> = () => ({
   store: '' as string | undefined,
   storeKey: '' as string | undefined,
   value: 0,
+  type: 'int' as 'int' | 'float',
 
   init() {
     if (this.$el.dataset.storeKey) {
@@ -14,16 +15,24 @@ export const numberInput: AlpineComponent<any> = () => ({
       this.store = store;
       this.storeKey = key;
       this.value = this.$store[store][key];
+      this.type = this.$el.dataset.type;
     }
   },
 
   updateValue(event: Event) {
     const input = event.target as HTMLInputElement;
-    const newValue = Number.parseInt(input.value);
+    let parsedValue: number;
 
-    if (Number.isNaN(newValue)) return;
-    this.value = newValue;
+    if (this.type === 'float') {
+      parsedValue = parseFloat(input.value);
+    } else {
+      parsedValue = parseInt(input.value);
+    }
 
-    if (this.store) this.$store[this.store][this.storeKey] = newValue;
+    if (Number.isNaN(parsedValue)) return;
+
+    this.value = parsedValue;
+
+    if (this.store) this.$store[this.store][this.storeKey] = parsedValue;
   },
 });

@@ -49,14 +49,14 @@
               </svg>
               Rows
             </label>
-            <div x-data="numberInput" data-store-key="config.rows">
+            <div x-data="numberInput" data-store-key="config.rows" data-type="int">
               <input
                 class="input"
                 aria-labelledby="rows-label"
                 id="rows"
                 type="number"
                 min="1"
-                max="50"
+                max="100"
                 step="1"
                 required
                 x-model.number="value"
@@ -85,14 +85,14 @@
               </svg>
               Columns
             </label>
-            <div x-data="numberInput" data-store-key="config.columns">
+            <div x-data="numberInput" data-store-key="config.columns" data-type="int">
               <input
                 class="input"
                 aria-labelledby="columns-label"
                 id="columns"
                 type="number"
                 min="1"
-                max="50"
+                max="100"
                 step="1"
                 required
                 x-model.number="value"
@@ -121,15 +121,15 @@
               </svg>
               Padding
             </label>
-            <div x-data="numberInput" data-store-key="config.padding">
+            <div x-data="numberInput" data-store-key="config.padding" data-type="float">
               <input
                 class="input"
                 aria-labelledby="padding-label"
                 id="padding"
                 type="number"
-                min="1"
-                max="99"
-                step="1"
+                min="-99"
+                max="100"
+                step="0.01"
                 required
                 x-model.number="value"
                 @input="updateValue"
