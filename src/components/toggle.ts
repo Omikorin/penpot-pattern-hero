@@ -1,5 +1,6 @@
 // @ts-nocheck
 import type { AlpineComponent } from 'alpinejs';
+import '../assets/toggle.css';
 
 // biome-ignore lint/suspicious/noExplicitAny: false positive
 export const toggle: AlpineComponent<any> = () => ({
