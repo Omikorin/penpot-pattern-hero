@@ -17,15 +17,19 @@
     </svg>
     Group Nodes
   </label>
-  <label class="toggle" x-data="toggle" data-store-key="config.group">
+  <label
+    class="switch-container"
+    x-data="switchComponent"
+    data-store-key="config.group"
+  >
     <input
+      type="checkbox"
       class="checkbox-hidden"
       aria-labelledby="group-label"
       id="group"
-      type="checkbox"
       x-model="checked"
       @change="updateChecked"
     />
-    <span class="slider"></span>
+    <span class="switch-slider"></span>
   </label>
 </div>

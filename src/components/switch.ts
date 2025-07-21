@@ -2,7 +2,7 @@
 import type { AlpineComponent } from 'alpinejs';
 
 // biome-ignore lint/suspicious/noExplicitAny: false positive
-export const toggle: AlpineComponent<any> = () => ({
+export const switchComponent: AlpineComponent<any> = () => ({
   store: '' as string | undefined,
   storeKey: '' as string | undefined,
   checked: false,

@@ -20,18 +20,18 @@
     Shuffle Nodes
   </label>
   <label
-    class="toggle"
-    x-data="toggle"
+    class="switch-container"
+    x-data="switchComponent"
     data-store-key="config.shuffle"
   >
     <input
+      type="checkbox"
       class="checkbox-hidden"
       aria-labelledby="shuffle-label"
       id="shuffle"
-      type="checkbox"
       x-model="checked"
       @change="updateChecked"
     />
-    <span class="slider"></span>
+    <span class="switch-slider"></span>
   </label>
 </div>

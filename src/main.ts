@@ -4,11 +4,11 @@ import { createPattern } from './common/actions';
 import { initializeStore } from './common/store';
 import type { PluginEvent } from './common/types';
 import { numberInput } from './components/number-input';
-import { toggle } from './components/toggle';
+import { switchComponent } from './components/switch';
 
 document.addEventListener('alpine:init', () => {
   Alpine.data('numberInput', numberInput);
-  Alpine.data('toggle', toggle);
+  Alpine.data('switchComponent', switchComponent);
 
   Alpine.data('patternHero', () => ({
     createPattern,
